@@ -48,32 +48,57 @@ export const AllergenIcon: React.FC<AllergenIconProps> = ({
   const normalizedAllergen = allergenName.toLowerCase();
   const svgFileName = ALLERGEN_SVG_MAP[normalizedAllergen];
   
+  // Fallback colors for different allergens
+  const allergenColors: Record<string, string> = {
+    'gluten': '#8B4513',
+    'dairy': '#87CEEB', 
+    'eggs': '#FFD700',
+    'fish': '#4682B4',
+    'shellfish': '#FF6347',
+    'nuts': '#D2691E',
+    'peanuts': '#DEB887',
+    'soy': '#228B22',
+    'sesame': '#F4A460',
+    'lupin': '#9370DB',
+    'molluscs': '#FF69B4',
+    'celery': '#32CD32',
+    'mustard': '#FFD700',
+    'sulfites': '#FFA500'
+  };
+  
   if (!svgFileName) {
     console.warn(`No SVG found for allergen: ${allergenName}`);
-    return <div className={`w-6 h-6 rounded ${className}`} style={{ backgroundColor: '#C7C7C7' }} title={title || allergenName} />;
+    return (
+      <div 
+        className={`rounded-full flex items-center justify-center text-white text-xs font-bold ${className}`} 
+        style={{ 
+          backgroundColor: allergenColors[normalizedAllergen] || '#C7C7C7',
+          width: size,
+          height: size,
+          fontSize: size * 0.4
+        }} 
+        title={title || allergenName}
+      >
+        {allergenName.charAt(0).toUpperCase()}
+      </div>
+    );
   }
 
-  const svgPath = `/icons/${svgFileName}`;
-  
-  // Check if className contains text-white to apply filter for white color
-  const isWhite = className.includes('text-white');
-  const filterStyle = isWhite ? {
-    filter: 'brightness(0) saturate(100%) invert(100%)',
-  } : {};
-  
+  // For now, use text fallback instead of broken images
+  // TODO: Fix static file serving on Vercel
   return (
-    <img
-      src={svgPath}
-      alt={title || allergenName}
-      title={title || allergenName}
-      className={`inline-block ${className}`}
+    <div 
+      className={`rounded-full flex items-center justify-center text-white text-xs font-bold ${className}`} 
       style={{ 
-        width: size, 
+        backgroundColor: allergenColors[normalizedAllergen] || '#C7C7C7',
+        width: size,
         height: size,
-        objectFit: 'contain',
-        ...filterStyle
-      }}
-    />
+        fontSize: size * 0.4
+      }} 
+      title={title || allergenName}
+    >
+      {allergenName.charAt(0).toUpperCase()}
+    </div>
   );
 };
 
