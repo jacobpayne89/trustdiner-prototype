@@ -1,34 +1,12 @@
 {
-  "version": 2,
-  "name": "trustdiner-fullstack",
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "backend/start.js",
-      "use": "@vercel/node"
+  "functions": {
+    "frontend/src/app/api/**/*.ts": {
+      "runtime": "nodejs18.x"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/start.js"
-    },
-    {
-      "src": "/health",
-      "dest": "/backend/start.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/$1"
-    }
-  ],
+  },
   "env": {
     "NODE_ENV": "production",
     "PROTOTYPE_MODE": "true",
-    "PORT": "3001",
     "AWS_REGION": "eu-west-2",
     "PROTOTYPE_BANNER": "true",
     "PROTOTYPE_MESSAGE": "This is a prototype version with sample data for demonstration purposes.",

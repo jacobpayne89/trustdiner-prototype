@@ -17,7 +17,7 @@ const nextConfig = {
         },
         // Production API calls go through CloudFront to ALB
         env: {
-          NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_API_URL_FALLBACK || 'https://api.trustdiner.com',
+          NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || '',
         }
       };
     }

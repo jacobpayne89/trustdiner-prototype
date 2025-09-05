@@ -113,7 +113,7 @@ export default function UserReviewsList({
       
       // Use relative URL in development (Next.js proxy) or direct URL in production
       const apiUrl = process.env.NODE_ENV === 'production' 
-        ? `${process.env.NEXT_PUBLIC_API_URL || 'https://api.trustdiner.com'}/api/reviews/user/${userId}`
+        ? `/api/reviews/user/${userId}`
         : `/api/reviews/user/${userId}`;
       
       const response = await fetch(apiUrl);
