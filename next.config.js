@@ -8,14 +8,10 @@ const nextConfig = {
     const isDevelopment = process.env.NODE_ENV === 'development';
     const isStaging = process.env.VERCEL_ENV === 'preview' || process.env.STAGING === 'true';
 
-    // Production build for AWS ECS deployment (server mode)
+    // Production build for Vercel deployment
     if (isProduction && !isStaging) {
       return {
-        output: 'standalone', // Standalone server for ECS containers
-        experimental: {
-          outputFileTracingRoot: path.join(__dirname, '../'),
-        },
-        // Production API calls go through CloudFront to ALB
+        // Standard Next.js build for Vercel (no standalone mode)
         env: {
           NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || '',
         }
