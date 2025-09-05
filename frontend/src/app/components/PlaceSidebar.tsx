@@ -97,7 +97,7 @@ export default function PlaceSidebar({
             
             // Convert Google Places photo references to actual URLs
             if (rawImageUrl && rawImageUrl.startsWith('ATKogp')) {
-              const apiKey = 'AIzaSyAohiZzDNq9DR77zIryQIdP4KYfhCIjuew';
+              const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
               imageUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${rawImageUrl}&key=${apiKey}`;
             } else {
               imageUrl = rawImageUrl;

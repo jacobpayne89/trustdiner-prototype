@@ -14,7 +14,7 @@ function convertGooglePlacesPhotoRef(photoRef: string | null): string | null {
   if (photoRef.startsWith('ATKogp')) {
     // Use the Google Places Photo API
     // Note: In production, this should use a backend proxy to hide the API key
-    const apiKey = 'AIzaSyAohiZzDNq9DR77zIryQIdP4KYfhCIjuew'; // TODO: Move to env var
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
     return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${photoRef}&key=${apiKey}`;
   }
   
