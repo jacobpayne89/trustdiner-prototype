@@ -1,0 +1,41 @@
+FROM node:18-alpine
+
+# Install dependencies for file watching
+RUN apk add --no-cache \
+    libc6-compat \
+    && apk update
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy all source files
+COPY . .
+
+# Create non-root user for security
+RUN addgroup --system --gid 1001 nodejs \
+    && adduser --system --uid 1001 nextjs
+
+# Change ownership of app directory
+RUN chown -R nextjs:nodejs /app
+USER nextjs
+
+# Expose the port Next.js runs on
+EXPOSE 3000
+
+# Set environment variables
+ENV NODE_ENV=development
+ENV PORT=3000
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Health check for development
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:3000/api/health || exit 1
+
+# Start the development server with hot reload
+CMD ["npm", "run", "dev"]

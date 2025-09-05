@@ -1,0 +1,24 @@
+{
+  "name": "trustdiner-fullstack",
+  "version": "3.0.0",
+  "description": "TrustDiner Full-Stack Prototype - Restaurant allergen information platform",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "build": "npm run build --workspace=frontend && npm run build --workspace=backend",
+    "start": "npm run start --workspace=frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["restaurant", "allergen", "food-safety", "nextjs", "react", "prototype"],
+  "author": "TrustDiner",
+  "license": "MIT"
+}

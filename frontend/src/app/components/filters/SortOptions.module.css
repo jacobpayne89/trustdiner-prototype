@@ -1,0 +1,91 @@
+/* Sort Options Component Styles */
+
+.sort-options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sort-options-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.rating-options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rating-option-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: colors 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+}
+
+.rating-option-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #01745F, 0 0 0 4px rgba(1, 116, 95, 0.1);
+}
+
+.rating-option-button--selected {
+  box-shadow: 0 0 0 2px #01745F, 0 0 0 4px rgba(1, 116, 95, 0.1);
+}
+
+.rating-badge {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.rating-badge--selected {
+  opacity: 1;
+}
+
+.rating-badge--unselected {
+  opacity: 0.8;
+}
+
+.rating-badge--excellent {
+  background-color: #22c55e;
+}
+
+.rating-badge--good {
+  background-color: #84cc16;
+}
+
+.rating-badge--okay {
+  background-color: #eab308;
+}
+
+.rating-badge--avoid {
+  background-color: #f97316;
+}
+
+.rating-badge--unsafe {
+  background-color: #ef4444;
+}
+
+.rating-badge--no-rating {
+  background-color: #9ca3af;
+}
+
+.rating-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+

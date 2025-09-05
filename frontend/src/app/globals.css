@@ -1,0 +1,281 @@
+@import "tailwindcss";
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Show skip link when focused */
+.sr-only:focus,
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-trustdiner-green: #00CC87;
+  --color-trustdiner-yellow: #FBBC1D;
+  --color-trustdiner-red: #F75E52;
+  --color-trustdiner-grey: #C7C7C7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-ubuntu);
+  --color-trustdiner-green: #00CC87;
+  --color-trustdiner-yellow: #FBBC1D;
+  --color-trustdiner-red: #F75E52;
+  --color-trustdiner-grey: #C7C7C7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-ubuntu), sans-serif;
+}
+
+* {
+  font-family: var(--font-ubuntu), sans-serif;
+}
+
+/* Radio wave animation for highlighted markers */
+@keyframes radio-wave {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  1% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.radio-wave {
+  position: absolute;
+  border: 3px solid #2563eb;
+  border-radius: 50%;
+  animation: radio-wave 2s infinite;
+  pointer-events: none;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.radio-wave:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.radio-wave:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.radio-wave:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+/* Blinking animation for marker outline */
+@keyframes marker-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.marker-blink {
+  animation: marker-blink 1s infinite;
+}
+
+/* Hide Google Maps InfoWindow close button */
+.gm-style .gm-style-iw-c {
+  padding-top: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.gm-style .gm-style-iw-d {
+  padding-top: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove top padding but keep content */
+.gm-style .gm-style-iw-c {
+  padding: 0 !important;
+}
+
+.gm-style .gm-style-iw-d {
+  padding: 0 !important;
+}
+
+/* Only hide the close button, not content */
+.gm-style .gm-style-iw-c button,
+.gm-style .gm-style-iw-d button,
+.gm-style .gm-style-iw-c .gm-style-iw-close,
+.gm-style .gm-style-iw-d .gm-style-iw-close {
+  display: none !important;
+}
+
+/* Remove blue border from InfoWindow */
+.gm-style .gm-style-iw-c {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.gm-style .gm-style-iw-d {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Aggressively remove all top spacing */
+.gm-style .gm-style-iw-c > div,
+.gm-style .gm-style-iw-d > div {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.gm-style .gm-style-iw-c > div:first-child,
+.gm-style .gm-style-iw-d > div:first-child {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Target the actual content container */
+.gm-style .gm-style-iw-c .gm-style-iw-d,
+.gm-style .gm-style-iw-d .gm-style-iw-d {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Completely hide any top content area */
+.gm-style .gm-style-iw-c > div:first-child:not(:has(> *)) {
+  display: none !important;
+}
+
+.gm-style .gm-style-iw-d > div:first-child:not(:has(> *)) {
+  display: none !important;
+}
+
+/* Remove all borders and outlines */
+.gm-style .gm-style-iw-c,
+.gm-style .gm-style-iw-d,
+.gm-style .gm-style-iw-c *,
+.gm-style .gm-style-iw-d * {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove right padding/margin from InfoWindow content */
+.gm-style .gm-style-iw-d {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.gm-style .gm-style-iw-d > div {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Prevent scrolling in InfoWindow */
+.gm-style .gm-style-iw-c {
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.gm-style .gm-style-iw-d * {
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure no scrollbars ever appear */
+.gm-style .gm-style-iw-c,
+.gm-style .gm-style-iw-d,
+.gm-style .gm-style-iw-c *,
+.gm-style .gm-style-iw-d * {
+  overflow: hidden !important;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+/* Hide scrollbars for webkit browsers */
+.gm-style .gm-style-iw-c::-webkit-scrollbar,
+.gm-style .gm-style-iw-d::-webkit-scrollbar,
+.gm-style .gm-style-iw-c *::-webkit-scrollbar,
+.gm-style .gm-style-iw-d *::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Hide the empty close button container that causes top white space */
+.gm-style .gm-style-iw-ch {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Target specific Google Maps elements */
+.gm-style .gm-style-iw-t,
+.gm-style .gm-style-iw-tc,
+.gm-style .gm-style-iw-t::before,
+.gm-style .gm-style-iw-tc::before {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  height: 0 !important;
+}
+
+/* Ensure triangle pointer is visible */
+.gm-style .gm-style-iw-b::after,
+.gm-style .gm-style-iw-bc::after {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Override padding for h2 in InfoWindow */
+.gm-style .gm-style-iw-d h2 {
+  padding-top: 16px !important;
+  margin-top: 0 !important;
+}
