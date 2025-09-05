@@ -13,7 +13,7 @@ const sampleEstablishments = [
     cuisine_type: "Modern British",
     price_range: "££",
     image_url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400",
-    allergen_scores: {
+    averageAllergenScores: {
       gluten: 5,
       dairy: 4,
       nuts: 5,
@@ -29,8 +29,8 @@ const sampleEstablishments = [
       molluscs: 3,
       peanuts: 5
     },
-    overall_rating: 4.8,
-    review_count: 127
+    averageRating: 4.8,
+    reviewCount: 127
   },
   {
     id: "2",
@@ -43,7 +43,7 @@ const sampleEstablishments = [
     cuisine_type: "Italian",
     price_range: "£££",
     image_url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400",
-    allergen_scores: {
+    averageAllergenScores: {
       gluten: 4,
       dairy: 3,
       nuts: 4,
@@ -59,8 +59,8 @@ const sampleEstablishments = [
       molluscs: 4,
       peanuts: 4
     },
-    overall_rating: 4.5,
-    review_count: 89
+    averageRating: 4.5,
+    reviewCount: 89
   },
   {
     id: "3",
@@ -73,7 +73,7 @@ const sampleEstablishments = [
     cuisine_type: "Healthy",
     price_range: "££",
     image_url: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400",
-    allergen_scores: {
+    averageAllergenScores: {
       gluten: 5,
       dairy: 5,
       nuts: 3,
@@ -89,8 +89,8 @@ const sampleEstablishments = [
       molluscs: 5,
       peanuts: 3
     },
-    overall_rating: 4.7,
-    review_count: 156
+    averageRating: 4.7,
+    reviewCount: 156
   },
   {
     id: "4",
@@ -103,7 +103,7 @@ const sampleEstablishments = [
     cuisine_type: "Organic",
     price_range: "£££",
     image_url: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400",
-    allergen_scores: {
+    averageAllergenScores: {
       gluten: 4,
       dairy: 4,
       nuts: 2,
@@ -119,8 +119,8 @@ const sampleEstablishments = [
       molluscs: 5,
       peanuts: 2
     },
-    overall_rating: 4.3,
-    review_count: 73
+    averageRating: 4.3,
+    reviewCount: 73
   },
   {
     id: "5",
@@ -133,7 +133,7 @@ const sampleEstablishments = [
     cuisine_type: "Vegetarian",
     price_range: "££",
     image_url: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400",
-    allergen_scores: {
+    averageAllergenScores: {
       gluten: 3,
       dairy: 2,
       nuts: 1,
@@ -149,8 +149,8 @@ const sampleEstablishments = [
       molluscs: 5,
       peanuts: 1
     },
-    overall_rating: 4.6,
-    review_count: 94
+    averageRating: 4.6,
+    reviewCount: 94
   }
 ];
 
