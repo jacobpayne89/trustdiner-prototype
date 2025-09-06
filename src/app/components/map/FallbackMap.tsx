@@ -9,16 +9,19 @@ interface FallbackMapProps {
 
 export default function FallbackMap({ places = [], className = '' }: FallbackMapProps) {
   return (
-    <div className={`relative bg-gray-100 flex items-center justify-center ${className}`}>
+    <div className={`relative bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center min-h-[400px] ${className}`}>
       {/* Map placeholder with UK outline */}
-      <div className="text-center">
+      <div className="text-center z-10">
         <div className="text-6xl mb-4">🗺️</div>
-        <h3 className="text-lg font-semibold text-gray-700 mb-2">Interactive Map</h3>
-        <p className="text-gray-500 mb-4">
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">Restaurant Map</h3>
+        <p className="text-gray-600 mb-4 max-w-md">
           Showing {places.length} restaurants across the UK
         </p>
-        <div className="text-sm text-gray-400">
+        <div className="text-sm text-gray-500 bg-white/80 rounded-lg px-4 py-2 inline-block">
           <p>📍 London • Manchester • Birmingham • Leeds • Bristol</p>
+        </div>
+        <div className="mt-4 text-xs text-gray-400">
+          <p>Interactive map requires Google Maps API key</p>
         </div>
       </div>
       
