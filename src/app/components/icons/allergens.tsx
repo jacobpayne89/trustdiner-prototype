@@ -84,8 +84,7 @@ export const AllergenIcon: React.FC<AllergenIconProps> = ({
     );
   }
 
-  // For now, use text fallback instead of broken images
-  // TODO: Fix static file serving on Vercel
+  // Always use colored circle fallback (SVG files not working on Vercel)
   return (
     <div 
       className={`rounded-full flex items-center justify-center text-white text-xs font-bold ${className}`} 
@@ -93,7 +92,9 @@ export const AllergenIcon: React.FC<AllergenIconProps> = ({
         backgroundColor: allergenColors[normalizedAllergen] || '#C7C7C7',
         width: size,
         height: size,
-        fontSize: size * 0.4
+        fontSize: Math.max(8, size * 0.4),
+        minWidth: size,
+        minHeight: size
       }} 
       title={title || allergenName}
     >

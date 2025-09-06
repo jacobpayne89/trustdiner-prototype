@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import type { MapContainerProps } from '@/types';
+import FallbackMap from './FallbackMap';
 
 // Lazy load the heavy MapContainer component
 const MapContainer = lazy(() => import('./MapContainer'));
@@ -87,7 +88,7 @@ export default function LazyMapContainer(props: MapContainerProps) {
 
   // Show fallback if Google Maps is not available
   if (!isGoogleMapsAvailable) {
-    return <MapUnavailable />;
+    return <FallbackMap places={props.places} className="w-full h-full" />;
   }
 
   // Render the actual map component
