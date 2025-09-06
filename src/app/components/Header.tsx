@@ -68,7 +68,9 @@ export default function Header({ onLogoClick }: NewHeaderProps) {
           className="flex items-center gap-3 text-white hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#01745F] rounded"
           onClick={onLogoClick}
         >
-          <LazyImage src="/logo.webp" alt="TrustDiner logo" width={29} height={29} className="block" priority placeholder={undefined} />
+          <div className="w-7 h-7 bg-white rounded-full flex items-center justify-center">
+            <span className="text-[#01745F] font-bold text-sm">T</span>
+          </div>
           <div className="flex flex-col max-[480px]:hidden">
             <span className="text-2xl font-extrabold text-white tracking-tight">TrustDiner</span>
           </div>

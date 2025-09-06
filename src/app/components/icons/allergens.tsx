@@ -84,22 +84,44 @@ export const AllergenIcon: React.FC<AllergenIconProps> = ({
     );
   }
 
-  // Always use colored circle fallback (SVG files not working on Vercel)
+  // Try to load SVG first, fallback to colored circle if it fails
+  const [imageError, setImageError] = React.useState(false);
+  const svgPath = `/icons/${svgFileName}`;
+  
+  if (imageError) {
+    // Fallback to colored circle
+    return (
+      <div 
+        className={`rounded-full flex items-center justify-center text-white text-xs font-bold ${className}`} 
+        style={{ 
+          backgroundColor: allergenColors[normalizedAllergen] || '#C7C7C7',
+          width: size,
+          height: size,
+          fontSize: Math.max(8, size * 0.4),
+          minWidth: size,
+          minHeight: size
+        }} 
+        title={title || allergenName}
+      >
+        {allergenName.charAt(0).toUpperCase()}
+      </div>
+    );
+  }
+
+  // Try to load the SVG
   return (
-    <div 
-      className={`rounded-full flex items-center justify-center text-white text-xs font-bold ${className}`} 
-      style={{ 
-        backgroundColor: allergenColors[normalizedAllergen] || '#C7C7C7',
-        width: size,
-        height: size,
-        fontSize: Math.max(8, size * 0.4),
-        minWidth: size,
-        minHeight: size
-      }} 
+    <img
+      src={svgPath}
+      alt={title || allergenName}
       title={title || allergenName}
-    >
-      {allergenName.charAt(0).toUpperCase()}
-    </div>
+      className={`inline-block ${className}`}
+      style={{ 
+        width: size, 
+        height: size,
+        objectFit: 'contain'
+      }}
+      onError={() => setImageError(true)}
+    />
   );
 };
 
